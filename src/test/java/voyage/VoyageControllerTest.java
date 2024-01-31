@@ -11,6 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.springframework.http.MediaType;
+
 import voyage.exception.NotImplementedException;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -53,9 +55,9 @@ public class VoyageControllerTest{
 		String st=objectMapper.writeValueAsString(requestBody);
 		
 		byte[] requestBod=st.getBytes();
-		mockMvc.perform(post("/voyage/saveVoyage"))
+		mockMvc.perform(post("/voyage/saveVoyage").content(st).contentType(MediaType.APPLICATION_JSON))
 		               .andExpect(status().isNotImplemented())
-					   .content(requestBod)
+				
 					   .andExpect(result-> assertTrue(result.getResolvedException() instanceof NotImplementedException))
 					   .andExpect(result-> assertEquals("La méthode saveVoyage n'est pas encore implémentée.",result.getResolvedException().getMessage()));
 		
@@ -67,9 +69,9 @@ public class VoyageControllerTest{
 		Voyage requestBody = new Voyage(); 
 		String st=objectMapper.writeValueAsString(requestBody);
       byte[] requestBod=st.getBytes();
-		mockMvc.perform(put("/voyage/updateVoyage"))
+		mockMvc.perform(put("/voyage/updateVoyage").content(st).contentType(MediaType.APPLICATION_JSON))
 		      .andExpect(status().isNotImplemented())
-			  .content(requestBod)
+			 
 			  .andExpect(result-> assertTrue(result.getResolvedException() instanceof NotImplementedException))
 			  .andExpect(result-> assertEquals("La méthode  n'est pas encore implémentée.",result.getResolvedException().getMessage()));
 	}
