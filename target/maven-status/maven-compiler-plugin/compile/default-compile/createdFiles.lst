@@ -1,0 +1,10 @@
+voyage\entity\Passenger.class
+voyage\entity\PrixVoyage.class
+voyage\entity\Utilisateur.class
+voyage\ApplicationMain.class
+voyage\controller\VoyageController.class
+voyage\entity\Train.class
+voyage\enumeration\TypeWagon.class
+voyage\exception\NotImplementedException.class
+voyage\entity\Voyage.class
+voyage\entity\Billet.class

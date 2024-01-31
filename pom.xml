@@ -3,7 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 	
-	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 	
 	<!-- Informations sur le projet -->
     <groupId>voyage</groupId>
@@ -11,12 +16,7 @@
     <version>1.0.0</version>
     <name>voyage train</name>
 	
-     <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+    
     <!-- Configuration du compilateur et du Java -->
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -30,6 +30,15 @@
 			<artifactId>javax.persistence-api</artifactId>
 			<version>2.2</version>
       </dependency>
+	  <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
+        <version>2.14.2</version> <!-- Remplacez par la dernière version disponible -->
+    </dependency>
 
 	 <dependency>
            <groupId>org.projectlombok</groupId>
@@ -37,6 +46,31 @@
            <version>1.18.22</version> <!-- Assurez-vous de vérifier la dernière version sur https://projectlombok.org/download -->
            <scope>provided</scope>
     </dependency>
+	
+	<dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.8.1</version> <!-- Assurez-vous de vérifier la dernière version sur le site officiel -->
+        <scope>test</scope>
+    </dependency>
+	<dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>3.11.2</version> <!-- Assurez-vous d'utiliser une version appropriée -->
+        <scope>test</scope>
+    </dependency>
+	<dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.8.1</version> <!-- Assurez-vous d'utiliser la même version que junit-jupiter-api -->
+        <scope>test</scope>
+    </dependency>
+	<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+
 	</dependencies>
 	
 	 <build>
